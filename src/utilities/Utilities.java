@@ -43,4 +43,29 @@ public class Utilities {
         salary=(empHrs*employeeWagePerHr);
         return salary;
     }
+    /*Functionality:using switch case to calculate
+    * employee wage
+    * @param:random which is set to 0 , 1 or 2
+    * @return:returns salary
+    * */
+    public int UseSwitchCaseForEmployeeWage(int random){
+        int empHrs;
+        int employeeWagePerHr=20;
+        int salary;
+        switch (random){
+            case 1:
+                empHrs=4;
+                salary=(empHrs*employeeWagePerHr);
+                break;
+            case 2:
+                empHrs=8;
+                salary=(empHrs*employeeWagePerHr);
+                break;
+            default:
+                empHrs=0;
+                salary=(empHrs*employeeWagePerHr);
+                break;
+        }
+        return salary;
+    }
 }
