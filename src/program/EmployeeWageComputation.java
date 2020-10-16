@@ -11,10 +11,11 @@ public class EmployeeWageComputation {
         System.out.println("welcome to employee wage computation main branch");
         Utilities utilities=new Utilities();
         int is_present=1;
+        int is_parttime=2;
         int salary;
-        int random= (int) (Math.floor(Math.random()*10)%2);
-        utilities.Attendence(is_present,random);
-        salary=utilities.DailyEmployeeWage(is_present,random);
+        int random= (int) (Math.floor(Math.random()*10)%3);
+        utilities.Attendence(is_present,random,is_parttime);
+        salary=utilities.DailyEmployeeWage(is_present,random,is_parttime);
         System.out.println(salary);
     }
     

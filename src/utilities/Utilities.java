@@ -6,11 +6,13 @@ public class Utilities {
     * and check if employee is present or
     * Absent
     * @param:is_present variable which is set to 1
-    * @param:random which is set to 0 0r 1
+    * @param:random which is set to 0 , 1 or 2
+    * @param:is_parttime is set to 1
+    *
     * */
 
-    public void Attendence(int is_present,int random){
-        if (random==is_present){
+    public void Attendence(int is_present,int random,int is_partime){
+        if (random==is_present||random==is_partime){
             System.out.println("employee is present");
         }
         else {
@@ -20,18 +22,25 @@ public class Utilities {
     /*
     * Fuctionality:to compute the daily wage of employee
     * @param:is_present is set to 1
-    * @param:random which is set to 0 or 1
+    * @param:random which is set to 0 , 1 or 2
+    * @param:is_parttime is set to 1
     * @return:returns salary*/
-    public int DailyEmployeeWage(int is_present,int random){
+    public int DailyEmployeeWage(int is_present,int random,int is_parttime){
         int employeeWagePerHr=20;
-        int empHrs=8;
+        int empHrs;
         int salary;
         if (is_present==random){
-          salary=(empHrs*employeeWagePerHr);
+          empHrs=8;
         }
         else {
-            salary=0;
+            if (is_parttime==random){
+                empHrs=4;
+            }
+            else {
+                empHrs=0;
+            }
         }
+        salary=(empHrs*employeeWagePerHr);
         return salary;
     }
 }
