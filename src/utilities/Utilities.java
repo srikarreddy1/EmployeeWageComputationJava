@@ -54,11 +54,11 @@ public class Utilities {
         int salary;
         switch (random){
             case 1:
-                empHrs=4;
+                empHrs=8;
                 salary=(empHrs*employeeWagePerHr);
                 break;
             case 2:
-                empHrs=8;
+                empHrs=4;
                 salary=(empHrs*employeeWagePerHr);
                 break;
             default:
