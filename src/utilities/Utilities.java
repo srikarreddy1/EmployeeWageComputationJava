@@ -68,4 +68,19 @@ public class Utilities {
         }
         return salary;
     }
+    /*
+    * Functionality:calculate employee wage for a month and print it out
+    * @param:is_present is set to 1
+    * @param:is_parttime is set to 1
+    * @param:Numberofworkindays is set to 20
+    * */
+    public void CalculateWagesPerMonth(int is_present,int is_parttime,int Numberofworkingdays){
+        int salary;
+        int random;
+         for(int day=1;day<Numberofworkingdays;day++){
+             random=(int) Math.floor(Math.random()*10)%3;
+             salary=new Utilities().DailyEmployeeWage(is_present,random,is_parttime);
+             System.out.println("salary of employee is "+salary);
+         }
+    }
 }

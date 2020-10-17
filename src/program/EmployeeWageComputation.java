@@ -14,10 +14,12 @@ public class EmployeeWageComputation {
         int is_parttime=2;
         int salary;
         int salaryusingswitch;
+        int Numberofworkingdays=20;
         int random= (int) (Math.floor(Math.random()*10)%3);
         utilities.Attendence(is_present,random,is_parttime);
         salary=utilities.DailyEmployeeWage(is_present,random,is_parttime);
         salaryusingswitch=utilities.UseSwitchCaseForEmployeeWage(random);
+        utilities .CalculateWagesPerMonth(is_present,is_parttime,Numberofworkingdays);
         System.out.println("salary calculate using if else statement:" +salary);
         System.out.println("salary calculated using switch statement:" +salaryusingswitch);
     }
