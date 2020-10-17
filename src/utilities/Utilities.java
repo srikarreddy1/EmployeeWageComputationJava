@@ -25,7 +25,7 @@ public class Utilities {
     * @param:random which is set to 0 , 1 or 2
     * @param:is_parttime is set to 1
     * @return:returns salary*/
-    public int DailyEmployeeWage(int is_present,int random,int is_parttime){
+    public int[] DailyEmployeeWage(int is_present,int random,int is_parttime){
         int employeeWagePerHr=20;
         int empHrs;
         int salary;
@@ -41,7 +41,8 @@ public class Utilities {
             }
         }
         salary=(empHrs*employeeWagePerHr);
-        return salary;
+        int[] salaryarray={salary,empHrs};
+        return salaryarray;
     }
     /*Functionality:using switch case to calculate
     * employee wage
@@ -75,12 +76,28 @@ public class Utilities {
     * @param:Numberofworkindays is set to 20
     * */
     public void CalculateWagesPerMonth(int is_present,int is_parttime,int Numberofworkingdays){
-        int salary;
+        int[] salary;
         int random;
          for(int day=1;day<Numberofworkingdays;day++){
              random=(int) Math.floor(Math.random()*10)%3;
              salary=new Utilities().DailyEmployeeWage(is_present,random,is_parttime);
-             System.out.println("salary of employee is "+salary);
+             System.out.println("salary of employee is "+salary[0]);
          }
+    }
+    public void TotalWorkingDays(int is_present,int is_parttime,int Numberofworkingdays,int MaxWorkingHoursInMonth){
+      int totalsalary;
+      int totalempHrs=0;
+      int totalWorkingDays=0;
+      int random;
+      int empratePerHr=20;
+      int[] empHrs;
+      while((totalWorkingDays<Numberofworkingdays)&&(totalempHrs<MaxWorkingHoursInMonth)){
+          totalWorkingDays++;
+          random=(int) Math.floor(Math.random()*10)%3;
+          empHrs=new Utilities().DailyEmployeeWage(is_present,random,is_parttime);
+          totalempHrs=totalempHrs+empHrs[1];
+      }
+      totalsalary=totalempHrs*empratePerHr;
+      System.out.println("total salary is :"+totalsalary);
     }
 }
