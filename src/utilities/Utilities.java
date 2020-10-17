@@ -1,5 +1,7 @@
 package utilities;
 
+import javax.swing.*;
+
 public class Utilities {
     /*
     * Functionality:Use the random function
@@ -43,31 +45,7 @@ public class Utilities {
         salary=(empHrs*employeeWagePerHr);
         return salary;
     }
-    /*Functionality:using switch case to calculate
-    * employee wage
-    * @param:random which is set to 0 , 1 or 2
-    * @return:returns salary
-    * */
-    public int UseSwitchCaseForEmployeeWage(int random){
-        int empHrs;
-        int employeeWagePerHr=20;
-        int salary;
-        switch (random){
-            case 1:
-                empHrs=8;
-                salary=(empHrs*employeeWagePerHr);
-                break;
-            case 2:
-                empHrs=4;
-                salary=(empHrs*employeeWagePerHr);
-                break;
-            default:
-                empHrs=0;
-                salary=(empHrs*employeeWagePerHr);
-                break;
-        }
-        return salary;
-    }
+
     /*
     * Functionality:calculate employee wage for a month and print it out
     * @param:is_present is set to 1
@@ -79,6 +57,7 @@ public class Utilities {
         int random;
          for(int day=1;day<Numberofworkingdays;day++){
              random=(int) Math.floor(Math.random()*10)%3;
+             new Utilities().Attendence(is_present,random,is_parttime);
              salary=new Utilities().DailyEmployeeWage(is_present,random,is_parttime);
              System.out.println("salary of employee is "+salary);
          }
