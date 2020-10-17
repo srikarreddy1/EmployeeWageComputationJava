@@ -84,6 +84,13 @@ public class Utilities {
              System.out.println("salary of employee is "+salary[0]);
          }
     }
+    /*Functionality:calculate the total employee wage untill the paticular emphours or total
+    * working days is completed
+    * @param:is_present is set to 1
+    * @param:is_parttime is set to 1
+    * @param:Numberofworkingdays is set to 20
+    * @param:MaxWorkingHoursInMonth is set to 100
+    * */
     public void TotalWorkingDays(int is_present,int is_parttime,int Numberofworkingdays,int MaxWorkingHoursInMonth){
       int totalsalary;
       int totalempHrs=0;
