@@ -1,5 +1,6 @@
 package program;
 
+import utilities.EmployeeWageObject;
 import utilities.Utilities;
 /*author:srikar reddy
   date:16/10/2020
@@ -13,11 +14,14 @@ public class EmployeeWageComputation {
         int is_present=1;
         int is_parttime=2;
         int[] salary;
-        int Numberofworkingdays=20;
-        int MaxWorkingHoursInMonth=100;
         int random= (int) (Math.floor(Math.random()*10)%3);
-        utilities.TotalWorkingDays(is_present,is_parttime,Numberofworkingdays,MaxWorkingHoursInMonth);
-
+        EmployeeWageObject employeeWageObject=new EmployeeWageObject();
+        employeeWageObject.setCompany("Dmart");
+        employeeWageObject.setNumberofdays(10);
+        employeeWageObject.setMaxhoursinmonth(100);
+        employeeWageObject.setEmpratePerHr(50);
+        System.out.println(employeeWageObject.getEmpratePerHr());
+        utilities.TotalWorkingDays(is_present,is_parttime,employeeWageObject.getNumberofdays(),employeeWageObject.getMaxhoursinmonth(),employeeWageObject.getEmpratePerHr());
     }
     
 }

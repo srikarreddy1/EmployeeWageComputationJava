@@ -1,6 +1,8 @@
 package utilities;
 
 public class Utilities {
+
+
     /*
     * Functionality:Use the random function
     * and check if employee is present or
@@ -51,17 +53,15 @@ public class Utilities {
     * @param:Numberofworkingdays is set to 20
     * @param:MaxWorkingHoursInMonth is set to 100
     * */
-    public void TotalWorkingDays(int is_present,int is_parttime,int Numberofworkingdays,int MaxWorkingHoursInMonth){
-      int totalsalary;
-      int totalempHrs=0;
+    public void TotalWorkingDays(int is_present,int is_parttime,int Numberofworkingdays,int MaxWorkingHoursInMonth,int empratePerHr){
       int totalWorkingDays=0;
-      int random;
-      int salaryofeachday;
-      int empratePerHr=20;
+      int totalempHrs=0;
       int[] empHrs;
+      int salaryofeachday;
+      int totalsalary;
       while((totalWorkingDays<Numberofworkingdays)&&(totalempHrs<MaxWorkingHoursInMonth)){
           totalWorkingDays++;
-          random=(int) Math.floor(Math.random()*10)%3;
+          int random=(int) Math.floor(Math.random()*10)%3;
           new Utilities().Attendence(is_present,random,is_parttime);
           empHrs=new Utilities().DailyEmployeeWage(is_present,random,is_parttime);
           salaryofeachday=(empHrs[1]*empratePerHr);
