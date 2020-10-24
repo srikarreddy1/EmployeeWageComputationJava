@@ -1,10 +1,15 @@
 package utilities;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+
+
 public class Utilities {
 
+    List<EmployeeWageObject> EmployeewageComputation=new ArrayList<EmployeeWageObject>();
 
-    /*
-    * Functionality:Use the random function
+   /* Functionality:Use the random function
     * and check if employee is present or
     * Absent
     * @param:is_present variable which is set to 1
@@ -53,9 +58,11 @@ public class Utilities {
     * @param:Numberofworkingdays is set to 20
     * @param:MaxWorkingHoursInMonth is set to 100
     * */
-    public void TotalWorkingDays(int is_present,int is_parttime,int Numberofworkingdays,int MaxWorkingHoursInMonth,int empratePerHr){
+    public static int TotalWorkingDays(int Numberofworkingdays,int MaxWorkingHoursInMonth,int empratePerHr,String company){
       int totalWorkingDays=0;
       int totalempHrs=0;
+      int is_present=1;
+      int is_parttime=2;
       int[] empHrs;
       int salaryofeachday;
       int totalsalary;
@@ -69,6 +76,40 @@ public class Utilities {
           totalempHrs=totalempHrs+empHrs[1];
       }
       totalsalary=totalempHrs*empratePerHr;
-      System.out.println("total salary is :"+totalsalary);
+      System.out.println("total wage for a company "+company+" is "+totalsalary);
+      return totalsalary;
     }
+    /*
+    * Functionality:To add a company to array list
+    * @param:empratePerHr:employee rate per hour
+    * @param:maxhoursinmonth: maximum number of working hours in month
+    * @param:numberofdays: maximum number of working days in a month
+    * @param:company: name of the company
+    * */
+    public void Add_Company(int empratePerHr,int maxhoursinmonth,int numberofdays,String company){
+         EmployeeWageObject companyobject;
+         companyobject=new EmployeeWageObject(empratePerHr,maxhoursinmonth,numberofdays,company);
+         EmployeewageComputation.add(companyobject);
+
+    }
+    /*
+    * Functionality:to dispaly the name of companies in the arraylist
+    * */
+    public void display(){
+        for(EmployeeWageObject employee : EmployeewageComputation)
+            System.out.println(employee);
+    }
+    /*
+    * Functionality:to compute the wages and store in a hash map
+    * */
+    public void computewage(){
+        int tatalsalary;
+        for(EmployeeWageObject company : EmployeewageComputation){
+            tatalsalary=Utilities.TotalWorkingDays(company.getNumberofdays(),company.getMaxhoursinmonth()
+                                     ,company.getEmpratePerHr(),company.getCompany());
+            company.SetToalwage(tatalsalary);
+        }
+
+    }
+
 }
