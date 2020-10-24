@@ -21,6 +21,6 @@ public class EmployeeWageComputation {
         utilities.Add_Company(40,60,50,"Bigbasket");
        // utilities.display();
         utilities.computewage();
-
+        utilities.displayTotalwage("Groffers");
     }
 }

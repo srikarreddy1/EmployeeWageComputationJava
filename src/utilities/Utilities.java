@@ -8,6 +8,7 @@ import java.util.List;
 public class Utilities {
 
     List<EmployeeWageObject> EmployeewageComputation=new ArrayList<EmployeeWageObject>();
+    HashMap<String,EmployeeWageObject> companymap=new HashMap<String, EmployeeWageObject>();
 
    /* Functionality:Use the random function
     * and check if employee is present or
@@ -90,6 +91,7 @@ public class Utilities {
          EmployeeWageObject companyobject;
          companyobject=new EmployeeWageObject(empratePerHr,maxhoursinmonth,numberofdays,company);
          EmployeewageComputation.add(companyobject);
+        companymap.put(company,companyobject);
 
     }
     /*
@@ -111,5 +113,11 @@ public class Utilities {
         }
 
     }
+    /*
+     * Functionality:to display the total wage of company with company name
+     * @param:companyname:name of the company*/
+     public void displayTotalwage(String companyname){
+          System.out.println("total wage for a  company "+companyname+" is : "+companymap.get(companyname).getTotalwage());
+       }
 
 }
